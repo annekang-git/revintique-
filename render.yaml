@@ -1,0 +1,18 @@
+services:
+  - type: static_site
+    name: revintique
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    preview:
+      buildCommand: npm install && npm run build
+      staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /**
+        destination: /index.html
+    envVars:
+      - key: VITE_DATA_CSV_URL
+        value: ""
+      - key: VITE_DATA_JSON_URL
+        value: ""

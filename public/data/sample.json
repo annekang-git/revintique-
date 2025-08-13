@@ -1,0 +1,44 @@
+[
+  {
+    "id": "rv-001",
+    "no": 1,
+    "brand": "Louis Vuitton",
+    "model": "Speedy 30",
+    "title": "루이비통 스피디 30",
+    "status": "판매중",
+    "sellerPrice": 850000,
+    "consumerMinPrice": 1100000,
+    "condition": "B+ 사용감 보통, 모서리 미세 스레",
+    "image1": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80&auto=format&fit=crop",
+    "image2": "https://images.unsplash.com/photo-1596445836561-cf2979f9136e?w=1200&q=80&auto=format&fit=crop",
+    "description": "구성품: 본품만. 내부 클린, 지퍼 원활."
+  },
+  {
+    "id": "rv-002",
+    "no": 2,
+    "brand": "Chanel",
+    "model": "Classic Flap Small",
+    "title": "샤넬 클래식 스몰 플랩",
+    "status": "예약중",
+    "sellerPrice": 5300000,
+    "consumerMinPrice": 5900000,
+    "condition": "A 소장급, 전체적으로 매우 깨끗",
+    "image1": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80&auto=format&fit=crop",
+    "image2": "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1200&q=80&auto=format&fit=crop",
+    "description": "풀구성. 미세 스크래치 정도, 코너 마모 없음."
+  },
+  {
+    "id": "rv-003",
+    "no": 3,
+    "brand": "Gucci",
+    "model": "Marmont Mini",
+    "title": "구찌 마몬트 미니",
+    "status": "판매완료",
+    "sellerPrice": 950000,
+    "consumerMinPrice": 1050000,
+    "condition": "B 사용감, 내부 약간의 얼룩",
+    "image1": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=1200&q=80&auto=format&fit=crop",
+    "image2": "https://images.unsplash.com/photo-1593032457861-0406b2a7a7a2?w=1200&q=80&auto=format&fit=crop",
+    "description": "체인 변색 미세, 외관 양호."
+  }
+]
