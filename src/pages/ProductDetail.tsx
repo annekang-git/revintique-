@@ -18,9 +18,14 @@ export default function ProductDetail() {
   }, [])
 
   const p = useMemo(() => all.find((x) => String(x.id) === String(id)), [all, id])
-  const images = (p?.images?.length ? p.images : [(p as any)?.image1, (p as any)?.image2, (p as any)?.image3]).filter(Boolean) as string[]
+  const images = (p?.images?.length ? p.images : [(p as any)?.image1, (p as any)?.image2, (p as any)?.image3, (p as any)?.image4, (p as any)?.image5]).filter(Boolean) as string[]
 
   useEffect(() => { setIndex(0) }, [id])
+
+  // helper: 이미지/동영상 구분
+  function isVideo(url: string) {
+    return /\.(mp4|webm|mov)(\?.*)?$/i.test(url)
+  }
 
   if (!p) return <div className="mt-6 text-sm text-gray-500">로딩 중…</div>
 
@@ -32,13 +37,23 @@ export default function ProductDetail() {
         <div>
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             {images[index] ? (
-              <img
-                key={index}
-                src={images[index]}
-                alt={p.title}
-                className="h-full w-full object-contain cursor-zoom-in"
-                onClick={() => setOpen(true)}
-              />
+              isVideo(images[index]) ? (
+                <video
+                  key={index}
+                  src={images[index]}
+                  controls
+                  className="h-full w-full object-contain bg-black"
+                  poster={images.find((img, i) => i !== index && !isVideo(img)) || undefined}
+                />
+              ) : (
+                <img
+                  key={index}
+                  src={images[index]}
+                  alt={p.title}
+                  className="h-full w-full object-contain cursor-zoom-in"
+                  onClick={() => setOpen(true)}
+                />
+              )
             ) : (
               <div className="h-full w-full flex items-center justify-center text-gray-400">이미지 없음</div>
             )}
@@ -47,7 +62,11 @@ export default function ProductDetail() {
             <div className="mt-3 grid grid-cols-5 gap-2">
               {images.map((src, i) => (
                 <button key={i} className={"aspect-square rounded border overflow-hidden " + (i === index ? 'ring-2 ring-brand-500' : '')} onClick={() => setIndex(i)}>
-                  <img src={src} alt={`thumb-${i}`} className="h-full w-full object-cover" />
+                  {isVideo(src) ? (
+                    <div className="h-full w-full flex items-center justify-center bg-black text-white text-xs">동영상</div>
+                  ) : (
+                    <img src={src} alt={`thumb-${i}`} className="h-full w-full object-cover" />
+                  )}
                 </button>
               ))}
             </div>
