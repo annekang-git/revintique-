@@ -23,6 +23,7 @@ export default function Home() {
   const [all, setAll] = useState<Product[]>([])
   const [brand, setBrand] = useState<string>('all')
   const [bucket, setBucket] = useState<PriceBucket>('all')
+  const [status, setStatus] = useState<string>('all')
   const [sortBy, setSortBy] = useState<SortKey>('latest')
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
@@ -47,6 +48,7 @@ export default function Home() {
   const filtered = useMemo(() => {
     let rows = all.slice()
     if (brand !== 'all') rows = rows.filter((p) => p.brand === brand)
+    if (status !== 'all') rows = rows.filter((p) => p.status === status)
     if (bucket !== 'all') {
       rows = rows.filter((p) => {
         const price = p.sellerPrice
@@ -78,13 +80,13 @@ export default function Home() {
         rows.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || '')); break
     }
     return rows
-  }, [all, brand, bucket, sortBy, query])
+  }, [all, brand, status, bucket, sortBy, query])
 
   return (
     <section className="mt-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="text-lg font-semibold">상품 리스트</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full sm:w-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 w-full sm:w-auto">
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -98,6 +100,12 @@ export default function Home() {
             {(['all','under100k','100k','200k','300k','under1m','1mplus'] as PriceBucket[]).map((b) => (
               <option key={b} value={b}>{priceBucketLabel(b)}</option>
             ))}
+          </select>
+          <select value={status} onChange={(e) => setStatus(e.target.value)} className="rounded border px-3 py-2 text-sm">
+            <option value="all">전체 상태</option>
+            <option value="판매중">판매중</option>
+            <option value="예약중">예약중</option>
+            <option value="판매완료">판매완료</option>
           </select>
           <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)} className="rounded border px-3 py-2 text-sm">
             <option value="latest">최신등록순</option>
