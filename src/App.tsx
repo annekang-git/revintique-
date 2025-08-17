@@ -8,6 +8,7 @@ function InfoBanner() {
     <div className="space-y-2 text-sm leading-relaxed">
       <p className="font-semibold">구입방법</p>
       <ul className="list-disc list-inside text-gray-700">
+        <li>위 사이트는 판매자들에게만 제공되는 링크입니다.</li>
         <li>구입 및 문의가 필요한 가방 넘버를 전달해주세요.</li>
         <li>찾으시는 모델이 있다면 모델명과 원하시는 가격대를 전달해주세요.</li>
         <li>1개 배송비 4,000 원, 2개 이상부터 무료 배송 </li>
