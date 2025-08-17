@@ -59,8 +59,8 @@ export default function ProductDetail() {
             )}
           </div>
           {images.length > 1 && (
-            <div className="mt-3 grid grid-cols-5 gap-2">
-              {images.map((src, i) => (
+            <div className="mt-3 grid grid-cols-5 gap-2 overflow-x-auto">
+              {images.slice(0, 5).map((src, i) => (
                 <button key={i} className={"aspect-square rounded border overflow-hidden " + (i === index ? 'ring-2 ring-brand-500' : '')} onClick={() => setIndex(i)}>
                   {isVideo(src) ? (
                     <div className="h-full w-full flex items-center justify-center bg-black text-white text-xs">동영상</div>
@@ -69,6 +69,9 @@ export default function ProductDetail() {
                   )}
                 </button>
               ))}
+              {images.length > 5 && (
+                <div className="flex items-center justify-center text-xs text-gray-400 px-2">+{images.length - 5}장</div>
+              )}
             </div>
           )}
           <p className="mt-2 text-xs text-gray-500">이미지를 클릭하면 확대 보기로 열립니다.</p>
@@ -112,7 +115,14 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      <ImageLightbox src={images[index]} alt={p.title} open={open} onClose={() => setOpen(false)} />
+      <ImageLightbox
+        images={images}
+        index={index}
+        setIndex={setIndex}
+        alt={p.title}
+        open={open}
+        onClose={() => setOpen(false)}
+      />
     </section>
   )
 }
