@@ -9,9 +9,10 @@ function InfoBanner() {
       <p className="font-semibold">구입방법</p>
       <ul className="list-disc list-inside text-gray-700">
         <li>구입 및 문의가 필요한 가방 넘버를 전달해주세요.</li>
-        <li>(구입이 필요한 상품은 모델명, 원하는 구입가격대를 전달해주세요)</li>
+        <li>찾으시는 모델이 있다면 모델명과 원하시는 가격대를 전달해주세요.</li>
+        <li>1개 배송비 4,000 원, 2개 이상부터 무료 배송 </li>
       </ul>
-      <p className="text-gray-700">모든 사진은 도용 "가능" 합니다. 자유롭게 2차 판매에 사용하셔도 됩니다.</p>
+      <p className="text-gray-700">모든 사진은 도용 "가능" 합니다. 다양한 자유롭게 2차 판매에 사용하셔도 됩니다.</p>
     </div>
   )
 }
