@@ -5,7 +5,7 @@ import ProductCard from '../components/ProductCard'
 
 type PriceBucket = 'all' | 'under100k' | '100k' | '200k' | '300k' | 'under1m' | '1mplus'
 
-type SortKey = 'latest' | 'price' | 'marginRate'
+type SortKey = 'latest' | 'price' | 'marginRate' | 'noDesc'
 
 function priceBucketLabel(b: PriceBucket) {
   switch (b) {
@@ -24,7 +24,7 @@ export default function Home() {
   const [brand, setBrand] = useState<string>('all')
   const [bucket, setBucket] = useState<PriceBucket>('all')
   const [status, setStatus] = useState<string>('all')
-  const [sortBy, setSortBy] = useState<SortKey>('latest')
+  const [sortBy, setSortBy] = useState<SortKey>('noDesc')
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
 
@@ -76,6 +76,8 @@ export default function Home() {
         rows.sort((a, b) => a.sellerPrice - b.sellerPrice); break
       case 'marginRate':
         rows.sort((a, b) => (b.marginRate || 0) - (a.marginRate || 0)); break
+      case 'noDesc':
+        rows.sort((a, b) => (b.no || 0) - (a.no || 0)); break
       default:
         rows.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || '')); break
     }
@@ -108,6 +110,7 @@ export default function Home() {
             <option value="판매완료">판매완료</option>
           </select>
           <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)} className="rounded border px-3 py-2 text-sm">
+            <option value="noDesc">가방No 내림차순</option>
             <option value="latest">최신등록순</option>
             <option value="price">가격순(판매자)</option>
             <option value="marginRate">마진율순</option>
