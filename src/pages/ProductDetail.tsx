@@ -35,7 +35,7 @@ export default function ProductDetail() {
 
       <div className="mt-3 grid gap-6 md:grid-cols-2">
         <div>
-          <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+          <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
             {images[index] ? (
               isVideo(images[index]) ? (
                 <video
@@ -56,6 +56,22 @@ export default function ProductDetail() {
               )
             ) : (
               <div className="h-full w-full flex items-center justify-center text-gray-400">이미지 없음</div>
+            )}
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={() => setIndex(index - 1 < 0 ? images.length - 1 : index - 1)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full px-2 py-1 text-lg shadow"
+                  style={{}}
+                  aria-label="이전 이미지"
+                >←</button>
+                <button
+                  onClick={() => setIndex((index + 1) % images.length)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/70 hover:bg-white rounded-full px-2 py-1 text-lg shadow"
+                  style={{}}
+                  aria-label="다음 이미지"
+                >→</button>
+              </>
             )}
           </div>
           {images.length > 1 && (
