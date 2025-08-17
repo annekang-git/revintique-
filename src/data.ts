@@ -16,7 +16,14 @@ function normalizeProduct(raw: any, index: number): Product {
   const margin = consumerMinPrice - sellerPrice
   const marginRate = consumerMinPrice ? Math.round((margin / consumerMinPrice) * 1000) / 10 : 0
   const images: string[] = []
-  ;['image1','image2','image3','image4','image5','이미지1','이미지2','이미지3','이미지4','이미지5'].forEach((k)=>{
+  ;[
+    'image1','image2','image3','image4','image5',
+    'image6','image7','image8','image9','image10',
+    'image11','image12','image13','image14','image15',
+    '이미지1','이미지2','이미지3','이미지4','이미지5',
+    '이미지6','이미지7','이미지8','이미지9','이미지10',
+    '이미지11','이미지12','이미지13','이미지14','이미지15'
+  ].forEach((k)=>{
     const u = raw[k]
     if (u && typeof u === 'string') images.push(u.trim())
   })
