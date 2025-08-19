@@ -10,7 +10,7 @@ function InfoBanner() {
       <ul className="list-disc list-inside text-gray-700">
         <li>위 사이트는 판매자들에게만 제공되는 링크입니다.</li>
         <li>구입 및 문의가 필요한 가방 넘버를 전달해주세요.</li>
-        <li>찾으시는 모델이 있다면 모델명과 원하시는 가격대를 전달해주세요.</li>
+        <li>찾으시는 모델이 있다면 모델이름과 원하시는 가격대를 전달해주세요.</li>
         <li>배송비 = 1개 구입 시 4,000원, 2개 이상 구입 시 무료배송 </li>
         <li>모든 상품은 2차에 걸쳐서 정품 검수 진행 (고이비토 검증서 발급 가능) 가품일 시 100% 환불 제도 </li>
       </ul>
@@ -24,9 +24,9 @@ function Footer() {
     <footer className="mt-10 border-t pt-6 text-xs text-gray-600">
       <div className="grid gap-1 sm:grid-cols-2 sm:gap-2">
         <p>상호: 레빈티크</p>
-        <p>대표자: -</p>
-        <p>사업자등록번호: -</p>
-        <p>환불/교환: 모든 상품은 검수 완료되었지만, 가품 발견 시 100% 환불</p>
+        <p>대표자: 박형실-</p>
+        <p>사업자등록번호: 122-39-92076-</p>
+        <p>환불/교환: 모든 상품은 2차 검수 완료되었지만, 가품 발견 시 100% 환불</p>
       </div>
       <p className="mt-4">© {new Date().getFullYear()} 레빈티크. All rights reserved.</p>
     </footer>
