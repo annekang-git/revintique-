@@ -25,8 +25,8 @@ function Footer() {
       <div className="grid gap-1 sm:grid-cols-2 sm:gap-2">
         <p>상호: 레빈티크</p>
         <p>대표자: 박형실-</p>
-        <p>사업자등록번호: 122-39-92076-</p>
-        <p>환불/교환: 모든 상품은 2차 검수 완료되었지만, 가품 발견 시 100% 환불</p>
+        <p>사업자등록번호: 122-39-92076</p>
+        <p>연락처: 010-4637-2347</p>
       </div>
       <p className="mt-4">© {new Date().getFullYear()} 레빈티크. All rights reserved.</p>
     </footer>
